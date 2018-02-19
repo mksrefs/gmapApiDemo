@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/style.css")" />
+</head>
+<body>
+	<h3>My Google Maps</h3>
+	USER_NAME : @session.get("name") 
+	@if(session.get("name") != null) {
+	<div id="map"></div>
+	}
+	<form>
+		<input id="address" type="text"> <input id="submit"
+			type="button" value="geocoder">
+	</form>
+	<input id="random" type="button" value="ランダム">
+	<input id="delete" type="button" value="削除">
+	@if(session.get("name") == null) {
+	<a href="/twitter/login">ログイン</a> 
+	} 
+	@if(session.get("name") != null) {
+	<a href="/twitter/logout">ログアウト</a> 
+	}
+	<ul>
+		<li>lat of center: <span id="lat"></span></li>
+		<li>lat of center: <span id="lng"></span></li>
+	</ul>
+	<ul id="addList"></ul>
+</body>
+<script defer src="https://maps.googleapis.com/maps/api/js?key=" ></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+<script src="@routes.Assets.at("javascripts/main.js")" ></script>
+</html>
+

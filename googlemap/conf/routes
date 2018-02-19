@@ -1,0 +1,15 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Map static resources from the /public folder to the /assets URL path
+GET		/assets/*file		controllers.Assets.at(path="/public", file)
+
+GET		/			controllers.HomeController.index()
+GET		/api/search		controllers.api.PropertyApiController.searchBoundingbox(latFrom:Double,latTo:Double,lngFrom:Double,lngTo:Double)
+
+# OAUTH
+
+GET		/twitter/login			controllers.TwitterController.login()
+GET		/twitter/getName			controllers.TwitterController.getTwitterName()
+GET		/twitter/logout			controllers.TwitterController.logout()
